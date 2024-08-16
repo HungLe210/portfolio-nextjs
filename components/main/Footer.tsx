@@ -8,6 +8,7 @@ import {
 } from "react-icons/rx"
 
 import { FaYoutube } from 'react-icons/fa'
+import Link from 'next/link'
 
 const Footer = () => {
     return (
@@ -31,10 +32,10 @@ const Footer = () => {
                     </div>
                     <div className='min-w-[200px] h-auto flex flex-col items-center justify-start'>
                         <div className="font-bold text-[16px]">Social Media</div>
-                        <p className='flex flex-row items-center my-[15px] cursor-pointer'>
+                        <Link href={process.env.NEXT_PUBLIC_INSTAGRAM_URL as string} className='flex flex-row items-center my-[15px] cursor-pointer'>
                             <RxInstagramLogo />
-                            <span className='text-[15px] ml-[6px]'>Instagram</span>
-                        </p>
+                            <span className='text-[15px] ml-[6px] cursor-pointer'>Instagram</span>
+                        </Link>
                         <p className='flex flex-row items-center my-[15px] cursor-pointer'>
                             <RxTwitterLogo />
                             <span className='text-[15px] ml-[6px]'>Twitter</span>
