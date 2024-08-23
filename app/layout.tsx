@@ -23,8 +23,7 @@ export default function RootLayout({
       >
         <StarsCanvas />
         <Navbar />
-        {children}
-
+        <main className="h-full w-full">{children}</main>
       </body>
     </html>
   );

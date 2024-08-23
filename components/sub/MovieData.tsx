@@ -10,11 +10,11 @@ interface MovieDataProps {
     movies: Movie[]
 }
 
-export const Movies = ({ moviesData }: { moviesData: Movie[] }) => (
+export const MovieData = ({ moviesData }: { moviesData: Movie[] }) => (
     <motion.div
         initial="hidden"
         animate="visible"
-        className='flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]'
+        className='flex flex-row items-center justify-center px-20 w-full z-[20]'
     >
         <motion.div
             variants={slideInFromTop}
@@ -49,5 +49,3 @@ export const Movies = ({ moviesData }: { moviesData: Movie[] }) => (
     </motion.div>
 )
 
-
-export default Movies;

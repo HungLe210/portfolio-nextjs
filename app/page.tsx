@@ -8,15 +8,14 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <main className="h-full w-full">
-      <div className='flex flex-col gap-20'>
-        <Hero />
-        <Skills />
-        <Encryption />
-        <Projects />
-        <Footer />
-      </div>
-    </main>
+    <div className='flex flex-col gap-20'>
+      <Hero />
+      <Skills />
+      <Encryption />
+      <Projects />
+      <Footer />
+    </div>
+
   )
 }
 

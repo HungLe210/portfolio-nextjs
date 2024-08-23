@@ -7,7 +7,10 @@ import React from 'react'
 
 const About = async () => {
     return (
-        <Movies />
+        <div className='custom'>
+            <Movies />
+        </div>
+
     )
 }
 

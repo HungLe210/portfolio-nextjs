@@ -8,7 +8,7 @@ import { CardSkeleton, LatestInvoicesSkeleton, RevenueChartSkeleton } from '@/co
 export default async function Page() {
 
     return (
-        <main className='mt-50'>
+        <div className='custom'>
             <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl items-end`}>
                 Dashboard
             </h1>
@@ -24,8 +24,7 @@ export default async function Page() {
                 <Suspense fallback={<LatestInvoicesSkeleton />}>
                     <LatestInvoices />
                 </Suspense>
-
             </div>
-        </main>
+        </div >
     );
 }

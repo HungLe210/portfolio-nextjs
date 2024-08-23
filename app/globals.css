@@ -63,7 +63,9 @@
   display: none;
 }
 
-
+.custom {
+  margin-top: 50px;
+}
 
 html {
   scroll-behavior: smooth;

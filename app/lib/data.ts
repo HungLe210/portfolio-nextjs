@@ -15,49 +15,49 @@ export async function fetchRevenue() {
         // Don't do this in production :)
 
         console.log('Fetching revenue data...');
-        //await new Promise((resolve) => setTimeout(resolve, 3000));
+        // await new Promise((resolve) => setTimeout(resolve, 3000));
 
-        //const data = await sql<Revenue>`SELECT * FROM revenue`;
-        const data = {
-            command: 'SELECT',
-            rowCount: 12,
-            rows: [
-                { month: 'Jan', revenue: 2000 },
-                { month: 'Feb', revenue: 1800 },
-                { month: 'Mar', revenue: 2200 },
-                { month: 'Apr', revenue: 2500 },
-                { month: 'May', revenue: 2300 },
-                { month: 'Jun', revenue: 3200 },
-                { month: 'Jul', revenue: 3500 },
-                { month: 'Aug', revenue: 3700 },
-                { month: 'Sep', revenue: 2500 },
-                { month: 'Oct', revenue: 2800 },
-                { month: 'Nov', revenue: 3000 },
-                { month: 'Dec', revenue: 4800 }
-            ],
-            fields: [
-                {
-                    name: 'month',
-                    dataTypeID: 1043,
-                    tableID: 24611,
-                    columnID: 1,
-                    dataTypeSize: -1,
-                    dataTypeModifier: 8,
-                    format: 'text'
-                },
-                {
-                    name: 'revenue',
-                    dataTypeID: 23,
-                    tableID: 24611,
-                    columnID: 2,
-                    dataTypeSize: 4,
-                    dataTypeModifier: -1,
-                    format: 'text'
-                }
-            ],
-            rowAsArray: false,
-            viaNeonFetch: true
-        }
+        const data = await sql<Revenue>`SELECT * FROM revenue`;
+        // const data = {
+        //     command: 'SELECT',
+        //     rowCount: 12,
+        //     rows: [
+        //         { month: 'Jan', revenue: 2000 },
+        //         { month: 'Feb', revenue: 1800 },
+        //         { month: 'Mar', revenue: 2200 },
+        //         { month: 'Apr', revenue: 2500 },
+        //         { month: 'May', revenue: 2300 },
+        //         { month: 'Jun', revenue: 3200 },
+        //         { month: 'Jul', revenue: 3500 },
+        //         { month: 'Aug', revenue: 3700 },
+        //         { month: 'Sep', revenue: 2500 },
+        //         { month: 'Oct', revenue: 2800 },
+        //         { month: 'Nov', revenue: 3000 },
+        //         { month: 'Dec', revenue: 4800 }
+        //     ],
+        //     fields: [
+        //         {
+        //             name: 'month',
+        //             dataTypeID: 1043,
+        //             tableID: 24611,
+        //             columnID: 1,
+        //             dataTypeSize: -1,
+        //             dataTypeModifier: 8,
+        //             format: 'text'
+        //         },
+        //         {
+        //             name: 'revenue',
+        //             dataTypeID: 23,
+        //             tableID: 24611,
+        //             columnID: 2,
+        //             dataTypeSize: 4,
+        //             dataTypeModifier: -1,
+        //             format: 'text'
+        //         }
+        //     ],
+        //     rowAsArray: false,
+        //     viaNeonFetch: true
+        // }
         console.log("DATA: ????? ", data);
 
         console.log('Data fetch completed after 3 seconds.');
