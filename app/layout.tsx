@@ -16,14 +16,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  //console.log(children);
+
   return (
     <html lang="en">
-      <body className={`{inter.className} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
+      <body className={`{inter.className} bg-[#030014] `}
       >
-        <StarsCanvas />
-        <Navbar />
-        <main className="h-full w-full">{children}</main>
+        <div className="relative z-[10] w-full h-auto fixed inset-0">
+          <StarsCanvas />
+        </div>
+        <div className="relative z-[30]">
+          <Navbar />
+          <main className="w-full h-full">{children}</main>
+        </div>
+
       </body>
     </html>
   );

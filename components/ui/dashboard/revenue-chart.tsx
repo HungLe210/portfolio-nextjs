@@ -15,7 +15,50 @@ import { slideInFromTop } from '@/utils/motion';
 // https://airbnb.io/visx/
 
 export default async function RevenueChart() {
-  const revenue = await fetchRevenue();
+  //const revenue = await fetchRevenue();
+
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  const data = {
+    command: 'SELECT',
+    rowCount: 12,
+    rows: [
+      { month: 'Jan', revenue: 2000 },
+      { month: 'Feb', revenue: 1800 },
+      { month: 'Mar', revenue: 2200 },
+      { month: 'Apr', revenue: 2500 },
+      { month: 'May', revenue: 2300 },
+      { month: 'Jun', revenue: 3200 },
+      { month: 'Jul', revenue: 3500 },
+      { month: 'Aug', revenue: 3700 },
+      { month: 'Sep', revenue: 2500 },
+      { month: 'Oct', revenue: 2800 },
+      { month: 'Nov', revenue: 3000 },
+      { month: 'Dec', revenue: 4800 }
+    ],
+    fields: [
+      {
+        name: 'month',
+        dataTypeID: 1043,
+        tableID: 24611,
+        columnID: 1,
+        dataTypeSize: -1,
+        dataTypeModifier: 8,
+        format: 'text'
+      },
+      {
+        name: 'revenue',
+        dataTypeID: 23,
+        tableID: 24611,
+        columnID: 2,
+        dataTypeSize: 4,
+        dataTypeModifier: -1,
+        format: 'text'
+      }
+    ],
+    rowAsArray: false,
+    viaNeonFetch: true
+  }
+  const revenue = data.rows;
   const chartHeight = 350;
   // NOTE: Uncomment this code in Chapter 7
 
@@ -25,58 +68,52 @@ export default async function RevenueChart() {
     return <p className="mt-4 text-gray-400">No data available.</p>;
   }
 
-
-
   return (
     <div className="w-full md:col-span-4">
-      <motion.div
-        variants={slideInFromTop}
-        className="Welcome-box py-[8px] px-[4px] border border-[#7042f88b] opacity-[0.9]"
-      >
-
-        <SparklesIcon className='text-[#b49bff] mr-[10px] h-5 w-5' />
-        <h1 className='Welcome-text text-[13px]'>Recent Revenue</h1>
-      </motion.div>
+      <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
+        Recent Revenue
+      </h2>
       {/* NOTE: Uncomment this code in Chapter 7 */}
 
-
       <div className="rounded-xl bg-gray-50 p-4">
-        <div className="flex">
+        <div className="flex items-end justify-between gap-2 rounded-md bg-white p-4">
+          {/* Cột label */}
           <div
-            className="flex flex-col justify-between text-sm text-gray-400"
-            style={{ height: `${chartHeight}px`, width: '50px' }} // Chiều rộng cột chỉ mục
+            className="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex"
+            style={{ height: `${chartHeight}px` }}
           >
             {yAxisLabels.map((label) => (
               <p key={label} className="text-center">{label}</p>
             ))}
           </div>
-          <div className="flex-1 overflow-x-auto">
-            <div className="flex flex-nowrap items-end">
-              {revenue.map((month) => (
-                <div key={month.month} className="flex flex-col items-center gap-2 px-1">
-                  <div
-                    className="w-10 rounded-md bg-blue-300"
-                    style={{
-                      height: `${(chartHeight / topLabel) * month.revenue}px`,
-                      marginBottom: 'auto', // Đảm bảo căn chỉnh từ dưới lên
-                    }}
-                  ></div>
-                  <p className="text-sm text-gray-400">{month.month}</p>
-                </div>
-              ))}
+
+          {/* Các cột doanh thu */}
+          {revenue.map((month) => (
+            <div
+              key={month.month}
+              className="flex flex-col items-center gap-2 flex-grow"
+              style={{ flexBasis: `calc(100% / 12)` }} /* Điều chỉnh số cột */
+            >
+              <div
+                className="w-full rounded-md bg-blue-300"
+                style={{
+                  height: `${(chartHeight / topLabel) * month.revenue}px`,
+                  maxHeight: '350px'
+                }}
+              ></div>
+              <p className="-rotate-90 text-sm text-gray-400 sm:rotate-0 text-center">
+                {month.month}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
+
 
         <div className="flex items-center pb-2 pt-6">
           <CalendarIcon className="h-5 w-5 text-gray-500" />
-          <h3 className="ml-2 text-sm text-gray-500">Last 12 months</h3>
+          <h3 className="ml-2 text-sm text-gray-500 ">Last 12 months</h3>
         </div>
       </div>
-
-
-
-
-    </div>
+    </div >
   );
 }
