@@ -16,6 +16,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //console.log(children);
   return (
     <html lang="en">
       <body className={`{inter.className} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
@@ -23,6 +24,7 @@ export default function RootLayout({
         <StarsCanvas />
         <Navbar />
         {children}
+
       </body>
     </html>
   );
