@@ -4,15 +4,25 @@ import Image from 'next/image';
 import { lusitana } from '@/components/ui/fonts';
 import { LatestInvoice } from '@/app/lib/definitions';
 import { fetchLatestInvoices } from '@/app/lib/data';
+import SparklesIcon from '@heroicons/react/24/solid/SparklesIcon';
 export default async function LatestInvoices() {
 
   const latestInvoices = await fetchLatestInvoices();
   return (
     <div className="flex w-full flex-col md:col-span-4">
-      <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-        Latest Invoices
-      </h2>
-      <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
+      <div
+        className='Welcome-box py-[8px] px-[4px] border border-[#7042f88b] opacity-[0.9]'
+      >
+
+        <SparklesIcon className='text-[#b49bff] mr-[10px] h-5 w-5' />
+        <h2 className='Welcome-text text-[13px]'>
+          Latest Invoices
+        </h2>
+
+
+      </div>
+
+      <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4 mt-2">
         {/* NOTE: Uncomment this code in Chapter 7 */}
 
         <div className="bg-white px-6">
