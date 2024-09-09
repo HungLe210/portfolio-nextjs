@@ -94,7 +94,7 @@ export const Socials = [
     {
         name: "Discord",
         src: "/discord.svg",
-        link: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+        link: process.env.NEXT_PUBLIC_DISCORD_URL,
     },
 ];
 
