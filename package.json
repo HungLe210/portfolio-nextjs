@@ -22,7 +22,6 @@
   "devDependencies": {
     "@react-three/drei": "^9.109.5",
     "@react-three/fiber": "^8.16.8",
-    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

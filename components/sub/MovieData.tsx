@@ -31,7 +31,8 @@ export const MovieData = ({ moviesData }: { moviesData: Movie[] }) => (
                             className='relative w-72 h-96 rounded-lg shadow-lg border border-[#2A0E61]'
                         >
                             <Image
-                                src="/Poster.jpg"
+                                src={movie.poster ? movie.poster : "/Poster.jpg"
+                                }
                                 alt=""
                                 fill
                                 style={{ objectFit: 'cover' }} // Adjust as needed
@@ -39,7 +40,7 @@ export const MovieData = ({ moviesData }: { moviesData: Movie[] }) => (
                             />
                             <h1 className='absolute left-1/2 transform -translate-x-1/2 top-[-2.5rem] text-3xl font-semibold text-purple-300 text-center z-10'>{movie.title}</h1>
                             <div className='absolute inset-0 p-4 flex flex-col justify-end bg-black bg-opacity-50'>
-                                <p className='mt-2 text-gray-300 text-center text-cyan-200'>{movie.plot}</p>
+                                <p className='mt-2 text-gray-300 text-center text-cyan-200'>{movie.description}</p>
                             </div>
                         </div>
                     )
